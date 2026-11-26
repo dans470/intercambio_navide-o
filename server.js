@@ -8,6 +8,14 @@ const { Pool } = pg;
 const app = express();
 const port = Number(process.env.PORT || 3000);
 const here = path.dirname(fileURLToPath(import.meta.url));
+if (!process.env.DATABASE_URL) {
+  console.error('Falta DATABASE_URL. En Render, agrega la Internal Database URL de PostgreSQL en Environment para este Web Service.');
+  process.exit(1);
+}
+if (!process.env.ADMIN_PASSWORD) {
+  console.error('Falta ADMIN_PASSWORD. Configura una contraseña secreta en Environment para este Web Service.');
+  process.exit(1);
+}
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ...(process.env.NODE_ENV === 'production' ? { ssl: { rejectUnauthorized: false } } : {}),
