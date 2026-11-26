@@ -1,0 +1,10 @@
+{
+  "description": "Organiza un intercambio navideño con una ruleta que asigna nombres pendientes y registra quién ya participó, en un diseño elegante y adaptable a teléfonos.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
